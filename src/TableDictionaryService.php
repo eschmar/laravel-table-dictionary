@@ -33,11 +33,11 @@ class TableDictionaryService
     {
         $dict = new TableDictionary($table);
 
-        if (!Storage::disk('local')->has(self::getFileName($table))) {
+        if (!Storage::disk('local')->has(self::OUTPUT_FOLDER . self::getFileName($table))) {
             return $dict;
         }
 
-        $dict->unserialize(Storage::disk('local')->get(self::getFileName($table)));
+        $dict->unserialize(Storage::disk('local')->get(self::OUTPUT_FOLDER . self::getFileName($table)));
         return $dict;
     }
 
@@ -51,7 +51,7 @@ class TableDictionaryService
     {
         Storage::disk('local')->makeDirectory(self::OUTPUT_FOLDER);
         Storage::disk('local')->put(
-            self::getFileName($dict->getTable()),
+            self::OUTPUT_FOLDER . self::getFileName($dict->getTable()),
             $dict->serialize()
         );
     }
