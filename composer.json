@@ -2,13 +2,19 @@
     "name": "eschmar/laravel-table-dictionary",
     "version": "0.1.0",
     "description": "Generate a dictionary of possible values for a database column to scale your data set.",
-    "require": {
-        "php": ">=7.0",
-        "laravel/framework": "5.*"
-    },
+    "type": "laravel",
     "authors": [
         {
             "name": "Marcel Eschmann"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "Eschmar\\TableDictionary": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": "5.*"
+    }
 }

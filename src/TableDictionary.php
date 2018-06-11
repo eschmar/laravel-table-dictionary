@@ -131,7 +131,7 @@ class TableDictionary implements \Serializable
      * @param string $attribute
      * @return array
      */
-    protected function getEntry(string $attribute): array
+    public function getEntry(string $attribute): array
     {
         if (!$this->hasEntry($attribute)) {
             return null;
