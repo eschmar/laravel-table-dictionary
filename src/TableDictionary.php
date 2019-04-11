@@ -98,13 +98,13 @@ class TableDictionary implements \Serializable
     public function parseWhere(array $with = []): string
     {
         if (count($with) < 1) {
-            return "WHERE 1";
+            return "WHERE True";
         }
 
         $term = "WHERE ";
         foreach ($with as $key => $value) {
             if (is_string($value)) {
-                $term .= "{$key} = \"{$value}\" ";
+                $term .= "{$key} = '{$value}' ";
                 continue;
             }
 
